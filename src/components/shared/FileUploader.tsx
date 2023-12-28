@@ -1,40 +1,3 @@
-// import { useState, useCallback } from "react";
-// import { useDropzone } from "react-dropzone";
-
-// const FileUploader = () => {
-//   const [fileUrl, setFileUrl] = useState("");
-//   const onDrop = useCallback((acceptedFiles) => {
-//     //Do something with the files
-//   }, []);
-
-//   const [getRootProps, getInputProps, isDragActive] = useDropzone({ onDrop });
-//   return (
-//     <div
-//       {...getRootProps()}
-//       className="flex flex-center flex-col bg-dark-3 rounded-xl cursor-pointer"
-//     >
-//       <input {...getInputProps()} className="cursor-pointer" />
-//       {fileUrl ? (
-//         <div>test 1</div>
-//       ) : (
-//         <div className="file_uploader-box">
-//           <img
-//             src="/assets/icons/file-upload.svg"
-//             width={96}
-//             height={77}
-//             alt="file-upload"
-//           />
-//           <h3 className="base-medium text-light-2 mb-2 mt-6">
-//             Drag photo here
-//           </h3>
-//           <p className="text-light-4 small-regular mb-6">SVG,PNG,JPG</p>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default FileUploader;
 import { useCallback, useState } from "react";
 import { FileWithPath, useDropzone } from "react-dropzone";
 
@@ -69,13 +32,13 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
   return (
     <div
       {...getRootProps()}
-      className="flex flex-center flex-col bg-dark-3 rounded-xl cursor-pointer"
+      className="flex flex-col cursor-pointer flex-center bg-dark-3 rounded-xl"
     >
       <input {...getInputProps()} className="cursor-pointer" />
 
       {fileUrl ? (
         <>
-          <div className="flex flex-1 justify-center w-full p-5 lg:p-10">
+          <div className="flex justify-center flex-1 w-full p-5 lg:p-10">
             <img src={fileUrl} alt="image" className="file_uploader-img" />
           </div>
           <p className="file_uploader-label">Click or drag photo to replace</p>
@@ -89,10 +52,10 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
             alt="file upload"
           />
 
-          <h3 className="base-medium text-light-2 mb-2 mt-6">
+          <h3 className="mt-6 mb-2 base-medium text-light-2">
             Drag photo here
           </h3>
-          <p className="text-light-4 small-regular mb-6">SVG, PNG, JPG</p>
+          <p className="mb-6 text-light-4 small-regular">SVG, PNG, JPG</p>
 
           <Button type="button" className="shad-button_dark_4">
             Select from computer
